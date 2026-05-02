@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>❤️ ليها بس</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #ffe9e6;
+            font-family: system-ui, 'Segoe UI', 'Cairo', 'Tahoma', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        /* بطاقة الدعم الحقيقية */
+        .true-support {
+            max-width: 580px;
+            width: 100%;
+            background: #fffbfa;
+            border-radius: 72px 48px 80px 48px;
+            padding: 40px 28px 50px;
+            box-shadow: 0 35px 45px -20px rgba(0, 0, 0, 0.2);
+            border: 1px solid #ffded5;
+            transition: all 0.2s;
+        }
+
+        /* القلب الكبير */
+        .big-heart {
+            text-align: center;
+            font-size: 4rem;
+            filter: drop-shadow(0 6px 12px rgba(199, 70, 90, 0.2));
+            animation: floatHeart 2s ease-in-out infinite;
+            margin-bottom: 15px;
+        }
+
+        @keyframes floatHeart {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-6px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .message-title {
+            font-size: 2rem;
+            font-weight: 720;
+            text-align: center;
+            color: #b34257;
+            letter-spacing: -0.3px;
+            margin: 10px 0 12px;
+        }
+
+        .sub-smile {
+            text-align: center;
+            font-size: 1rem;
+            color: #935e6b;
+            background: #ffefea;
+            width: fit-content;
+            margin: 0 auto 28px auto;
+            padding: 6px 18px;
+            border-radius: 60px;
+        }
+
+        /* النص الداعم */
+        .i-see-you {
+            background: #fff5f0;
+            padding: 24px 22px;
+            border-radius: 44px;
+            margin: 20px 0;
+            line-height: 1.75;
+            font-size: 1.05rem;
+            color: #2c2c3a;
+            border-right: 5px solid #f6afb9;
+        }
+
+        .i-see-you p {
+            margin: 12px 0;
+        }
+
+        .quote-em {
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: #b15b6e;
+        }
+
+        .material-kisses {
+            background: #ffffff;
+            border-radius: 48px;
+            padding: 16px 20px;
+            margin: 26px 0;
+            box-shadow: 0 6px 14px #ffe0d9;
+        }
+
+        .material-item {
+            display: flex;
+            align-items: baseline;
+            gap: 12px;
+            padding: 12px 0;
+            border-bottom: 1px dashed #ffe2dc;
+            font-size: 1rem;
+            color: #3a3a48;
+        }
+
+        .material-item:last-child {
+            border-bottom: none;
+        }
+
+        .material-emoji {
+            font-size: 1.6rem;
+            min-width: 46px;
+            text-align: center;
+        }
+
+        .btn-dua-love {
+            background: #fdeadf;
+            width: 100%;
+            border: none;
+            padding: 16px 10px;
+            font-size: 1.2rem;
+            font-weight: 620;
+            border-radius: 90px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            color: #aa5d70;
+            cursor: pointer;
+            transition: 0.2s;
+            margin: 25px 0 10px;
+            font-family: inherit;
+        }
+
+        .btn-dua-love:active {
+            transform: scale(0.96);
+            background: #fce2d2;
+        }
+
+        .dua-response {
+            background: #fcf3e8;
+            padding: 14px 18px;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 0.95rem;
+            color: #3a2b2b;
+            margin-top: 12px;
+            opacity: 0;
+            visibility: hidden;
+            transition: 0.2s;
+        }
+
+        .dua-response.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 0.7rem;
+            color: #cfabb4;
+        }
+
+        /* رسالة الحب في الآخر */
+        .love-explosion {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%) scale(0.7);
+            background: #ffedf0e8;
+            backdrop-filter: blur(15px);
+            border-radius: 80px;
+            padding: 14px 28px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            font-size: 1.7rem;
+            font-weight: bold;
+            color: #c73f60;
+            box-shadow: 0 20px 30px -10px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: 0.35s cubic-bezier(0.2, 0.9, 0.5, 1.2);
+            pointer-events: none;
+            white-space: nowrap;
+            direction: ltr;
+            border: 1.5px solid #ffbec9;
+            font-family: monospace, system-ui;
+            letter-spacing: 1px;
+        }
+
+        .love-explosion.show-love {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) scale(1);
+            bottom: 50px;
+        }
+
+        .heart-beat {
+            animation: beat 0.8s infinite;
+            display: inline-block;
+            font-size: 2rem;
+        }
+
+        @keyframes beat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.25); }
+        }
+
+        @media (max-width: 500px) {
+            .true-support {
+                padding: 30px 20px 40px;
+            }
+            .message-title {
+                font-size: 1.7rem;
+            }
+            .love-explosion {
+                font-size: 1.2rem;
+                padding: 10px 20px;
+                gap: 10px;
+            }
+            .heart-beat {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="true-support">
+    <div class="big-heart">💗💗💗</div>
+    <div class="message-title">أنا فخور بيكي</div>
+    <div class="sub-smile">حتى لو تعبتي .. أنا هنا</div>
+
+    <div class="i-see-you">
+        <p>✨ <span class="quote-em">"أنا هنا دايما</span> وقلبك الطيب هو اللي هيساعدك بكرة زي ما بتساعديني و تضحكيني دايما.</p>
+        <p>بكرة مجرد امتحان هتشوفي فيه قد إيه أنتِ قوية.</p>
+        <p>💬 أنا مش معاكي في اللجنة؟ بس أنا في بالك .. وقلبي معاكي خطوة خطوة.</p>
+        <p>🤍 خدي نفس، قولي "بسم الله"، وخشي زي الأسد.</p>
+    </div>
+
+    <div class="material-kisses">
+        <div class="material-item">
+            <span class="material-emoji">📜</span>
+            <span>الأدب:كلام ناس كانوامقرفين😂</span>
+        </div>
+        <div class="material-item">
+            <span class="material-emoji">☁️</span>
+            <span>النصوص: بسيطة .. كأنك بتقرأي قصيدة من قصائدي ليكي💗</span>
+        </div>
+        <div class="material-item">
+            <span class="material-emoji">✨</span>
+            <span>الحديث: كلام سيدنا محمد معاكِي .. اطمني</span>
+        </div>
+        <div class="material-item">
+            <span class="material-emoji">📘</span>
+            <span>المطالعة: انتِ أقوي منها بكتير ♥️</span>
+        </div>
+    </div>
+
+    <div style="margin: 18px 0;">
+        <p style="background: #ffede7; border-radius: 34px; padding: 16px; text-align: center; font-weight: 500;">
+        🌙 أنا فاكر تعبك، وفاكر سهرك، وبكرا تشوفي إنه كان يستاهل💗<br>
+        ربنا معاكي، ومع كل حرف هتكتبيه.
+        </p>
+    </div>
+
+    <button class="btn-dua-love" id="duaSpecialBtn">
+        🤲 ادعيلي بظهر الغيب 💗
+    </button>
+    <div id="duaSpecialMessage" class="dua-response">
+        💕 اللهم قوي قلبه في الامتحان كما قوّى قلبي بحبه آمين 💗🦅
+    </div>
+    <footer>مش لوحدك أبدًا .. والنعم.</footer>
+</div>
+
+<div id="finalLoveMessage" class="love-explosion">
+    <span>💌 I LOVE YOU HABIBA</span>
+    <span class="heart-beat">❤️</span>
+</div>
+
+<script>
+    (function(){
+        // زر الدعاء يشتغل زي الفل
+        const duaBtn = document.getElementById('duaSpecialBtn');
+        const duaMsg = document.getElementById('duaSpecialMessage');
+        let timer;
+        duaBtn.onclick = () => {
+            if(duaMsg.classList.contains('show')){
+                duaMsg.classList.remove('show');
+                setTimeout(() => duaMsg.classList.add('show'), 30);
+            } else {
+                duaMsg.classList.add('show');
+            }
+            if(timer) clearTimeout(timer);
+            timer = setTimeout(() => duaMsg.classList.remove('show'), 5000);
+        };
+
+        // رسالة I LOVE YOU HABIBA عند آخر الصفحة
+        const loveBubble = document.getElementById('finalLoveMessage');
+        let alreadyLoved = false;
+
+        function showLoveAtBottom(){
+            const scrollY = window.scrollY;
+            const winH = window.innerHeight;
+            const fullDoc = document.documentElement.scrollHeight;
+            // خلاص وصلت تقريبا للاخر
+            const isBottom = (scrollY + winH + 35) >= fullDoc;
+
+            if(isBottom && !alreadyLoved){
+                alreadyLoved = true;
+                loveBubble.classList.add('show-love');
+                setTimeout(() => {
+                    loveBubble.classList.remove('show-love');
+                }, 7000);
+            }
+        }
+
+        window.addEventListener('scroll', showLoveAtBottom);
+        window.addEventListener('load', showLoveAtBottom);
+        window.addEventListener('resize', showLoveAtBottom);
+    })();
+</script>
+</body>
+</html>
